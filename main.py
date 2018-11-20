@@ -3,20 +3,28 @@ from CYKAlgo import CYKAlgo
 
 
 def main():
-    G = Grammar("S->AB;A->BB|a;B->AB|b")
-    print(G.rules)
-    print(G.productions)
 
-    w = "aabbb"
-    cykAlgo = CYKAlgo(G)
-    cykAlgo.membership(w)
+    # G = Grammar("S->AB|XB;T->AB|XB;X->AT;A->a;B->b")
+    # w="aaabb"
 
-    # cykAlgo = CYKAlgo(G)
-    # if(cykAlgo.membership(w)){
-    #     print "w is in G"
-    # } else {
-    #     print "w is not in G"
-    # }
+    print("Welcome to the CYK Interactive algorithm!")
+
+    command = "y"
+    while(command == "y"):
+        grammar_text = input("Enter the grammar in CNF form (E.g. S->AB|a;A->a;B->b): ")
+        if grammar_text == "": break 
+        G = Grammar(grammar_text.strip())
+
+        w = input("Enter the string to check: ")
+
+        cykAlgo = CYKAlgo(G)
+        if (cykAlgo.membership(w.strip())):
+            print("The string w=\"{}\" is in grammar G!".format(w))
+        else:
+            print("The string w=\"{}\" is not in grammar G!".format(w))
+        
+        command = input("Continue the program (y/n)?: ")
+    print("Bye!")
 
 
 if __name__ == '__main__':
