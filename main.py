@@ -23,7 +23,7 @@ def main():
         else:
             print("The string w=\"{}\" is not in grammar G!".format(w))
         
-        command = input("Continue the program (y/n)?: ")
+        command = input("To continue enter \"y\" or press any key to exit: ")
     print("Bye!")
 
 

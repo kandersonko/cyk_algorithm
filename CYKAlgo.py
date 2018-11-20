@@ -15,6 +15,11 @@ class CYKAlgo:
             X[v]=k
         n = len(w)
         r = len(X)
+
+        # case where S->a is the only production
+        if(r==1 and w in self.G.productions[V[0]]["terminals"]):
+            return True
+
         # initialize all items in B to false
         for i in range(n):
             for j in range(n):
