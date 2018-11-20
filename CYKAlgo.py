@@ -1,6 +1,3 @@
-import numpy as np
-
-
 class CYKAlgo:
     def __init__(self, G):
         """ initilizes with the grammar G
